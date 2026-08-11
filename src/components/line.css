@@ -1,0 +1,22 @@
+.line-container {
+    width: 100%;
+    /* Add some vertical space so it isn't cramped */
+    padding: 50px 0; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    /* This forces the line to be exactly 120px smaller than the screen (60px gap on left, 60px gap on right) */
+    width: calc(100% - 120px); 
+    
+    /* Limit the maximum width so it doesn't get ridiculously long on huge monitors */
+    max-width: 1200px; 
+    
+    height: 1px; 
+    border: none; /* Add this just in case you are using an <hr> tag */
+    
+    background-color: rgba(255, 255, 255, 0.2); 
+}

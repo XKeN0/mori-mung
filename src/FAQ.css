@@ -1,0 +1,257 @@
+/* =========================================
+   1. MAIN LAYOUT
+========================================= */
+.faq-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0;
+    text-align: left;
+}
+
+/* =========================================
+   2. MASCOT & ANIMATIONS
+========================================= */
+.mascot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    margin: 50px;
+
+    transition: 0.3s ease;
+    cursor: pointer; /* Ensures it looks clickable */
+}
+
+.mascot-container:hover {
+    transform: translateY(-5px);
+    /* Subtle background highlight on hover */
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 20px;
+}
+
+.mascot {
+    width: 200px;
+    height: auto;
+}
+
+/* The Vibrate/Wiggle Animation */
+@keyframes vibrate {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-2px, 2px) rotate(-3deg); }
+    40% { transform: translate(-2px, -2px) rotate(3deg); }
+    60% { transform: translate(2px, 2px) rotate(0deg); }
+    80% { transform: translate(2px, -2px) rotate(3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.mascot.is-vibrating {
+    animation: vibrate 0.3s linear;
+}
+
+/* =========================================
+   3. CONTACT REVEAL BOX
+========================================= */
+.mascot-container-reveal {
+    width: auto;
+    height: auto;
+    padding: 25px;
+    
+    /* Frosted glass effect */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Borders and Shadows */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    
+    /* Text styling */
+    text-align: center;
+    color: #ffffff;
+    
+    /* Entrance animation */
+    animation: fadeInReveal 0.4s ease-out forwards;
+}
+
+.mascot-container-reveal h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.mascot-container-reveal p {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Phone Number Button */
+.mascot-container-reveal a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.mascot-container-reveal a:hover {
+    background-color: #439a46;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================
+   4. FEEDBACK SECTION
+========================================= */
+.feedback-container {
+    width: 400px;
+    height: auto;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background: #000000;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(213, 56, 56, 0.2);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.feedback-container h2 {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.feedback-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    
+    /* 0.8s duration, smooth ease-out curve, stops at the end (forwards) */
+    animation: slideInFast 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.feedback-track:hover {
+    animation-play-state: paused;
+}
+
+.feedback-card {
+    width: 250px;
+    min-height: 150px;
+    flex-shrink: 0;
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+.feedback-card h3 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.feedback-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    color: #ffffff;
+}
+
+/* Wrapper to keep things stable while the card moves */
+.feedback-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 
+  The card styling (combined with your previous styles)
+  Added the fast slide-in animation here.
+*/
+.feedback-card.feedback-enter {
+    width: 100%; /* Adjust if you want it smaller than the container */
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+
+    /* 0.4s duration, cubic-bezier for a sharp start and smooth stop */
+    animation: slideInFast 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInFast {
+    0% { 
+        transform: translateX(100%); /* Starts off-screen to the right */
+        opacity: 0; /* Optional: adds a quick fade-in effect */
+    }
+    100% { 
+        transform: translateX(0); /* Stops in its natural resting position */
+        opacity: 1;
+    }
+}
+
+.feedback-name {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =========================================
+   5. MOBILE RESPONSIVENESS
+========================================= */
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mascot-container {
+        margin: 30px;
+    }
+
+    .mascot {
+        width: 150px;
+    }
+
+    .feedback-container {
+        width: calc(100% - 40px);
+        height: 300px;
+    }
+
+    .feedback-card {
+        width: 220px;
+    }
+}

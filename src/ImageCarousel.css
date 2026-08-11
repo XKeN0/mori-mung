@@ -1,0 +1,46 @@
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 70px 0;
+    background-color: #ffffff;
+}
+
+
+.image-track {
+    display: flex;
+    gap: 100px;
+    width: max-content;
+
+    animation: scroll-left 30s linear infinite;
+}
+
+
+.image-track:hover {
+    animation-play-state: paused;
+}
+
+
+.image-track img {
+    width: 80px;
+    height: 80px;
+
+    object-fit: contain;
+    border-radius: 20px;
+    
+
+    flex-shrink: 0;
+}
+
+
+/* Move right to left */
+@keyframes scroll-left {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}

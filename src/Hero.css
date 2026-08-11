@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 50px;
+    box-sizing: border-box;
+    
+    overflow: hidden; /* Prevent scrollbar during fall animation */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: -1;
+}
+
+.mori-mung-logo {
+    width: 400px;
+    margin: 100px;
+
+    /* Play the animations */
+    animation:
+        logoFall 1.6s cubic-bezier(.22,1,.36,1),
+        logoFloat 4s ease-in-out infinite 1.6s;
+
+    transform-origin: center;
+}
+
+.mori-mung-packaging {
+    width: 200px;
+    height: auto;
+}
+
+.title h1 {
+    font-size: 100px;
+    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #333;
+}
+
+/* ========================= */
+/* Falling Animation */
+/* ========================= */
+@keyframes logoFall {
+    0% {
+        transform: translateY(-700px) rotate(-10deg) scale(0.8);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(30px) rotate(2deg) scale(1.05);
+        opacity: 1;
+    }
+
+    85% {
+        transform: translateY(-12px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* ========================= */
+/* Floating Animation */
+/* ========================= */
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
