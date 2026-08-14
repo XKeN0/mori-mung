@@ -5,21 +5,26 @@ import HeadingText from "./components/headingText";
 import chiaSeed from "./assets/ingredients/chia-seed.png";
 import curryLeaf from "./assets/ingredients/curry-leaf.png";
 import coconutMilk from "./assets/ingredients/coconut-milk.png";
-import bg from "./assets/bg.png";
+import butter from "./assets/ingredients/butter.png"
+import bg from "./assets/background/stripes.png";
 
 const ingredients = [
     {
         name: "Chia Seeds",
-        image: chiaSeed
+        image: chiaSeed,
     },
     {
         name: "Curry Leaves",
-        image: curryLeaf
+        image: curryLeaf,
     },
     {
         name: "Coconut Milk",
-        image: coconutMilk
+        image: coconutMilk,
     },
+    {
+        name: "Butter",
+        image: butter,
+    }
 ];
 
 function Ingredients() {
@@ -33,7 +38,6 @@ function Ingredients() {
         setCurrent((prev) => (prev - 1 + ingredients.length) % ingredients.length);
     };
 
-    // Removed the TypeScript ": number" artifact
     const getIndex = (offset: number) => {
         return (current + offset + ingredients.length) % ingredients.length;
     };
@@ -41,54 +45,51 @@ function Ingredients() {
     return (
         <div
             className="ingredients-container"
-            style={{
-                backgroundImage: `url(${bg})`,
-            }}
+            style ={{backgroundImage: `url(${bg})`}}            
         >
-            <HeadingText text="Ingredients" />
+            <div className="box">
+                <HeadingText text="Ingredients" />
+            </div>
+            
 
             <div className="carousel">
-                {/* Left Blurred Image */}
                 <div className="ingredient-side">
-                    <img 
+                    <img
                         src={ingredients[getIndex(-1)].image}
                         alt={ingredients[getIndex(-1)].name}
                     />
                 </div>
 
-                {/* Left Button */}
-                <button 
-                    className="arrow left"
+                <button
+                    className="arrow"
                     onClick={previousIngredient}
                     aria-label="Previous Ingredient"
                 >
-                    &lt;
+                    ←
                 </button>
 
-                {/* Center Active Image */}
                 <div className="ingredient-main">
-                    <img 
-                        key={`img-${current}`} // The key forces the fadeIn animation to replay
+                    <img
+                        key={`img-${current}`}
                         src={ingredients[current].image}
                         alt={ingredients[current].name}
                     />
-                    <h2 key={`text-${current}`}>
+                    {/* <h2 key={`text-${current}`}>
                         {ingredients[current].name}
-                    </h2>
+                    </h2>*/}
+                    
                 </div>
 
-                {/* Right Button */}
-                <button 
-                    className="arrow right"
+                <button
+                    className="arrow"
                     onClick={nextIngredient}
                     aria-label="Next Ingredient"
                 >
-                    &gt;
+                    →
                 </button>
 
-                {/* Right Blurred Image */}
                 <div className="ingredient-side">
-                    <img 
+                    <img
                         src={ingredients[getIndex(1)].image}
                         alt={ingredients[getIndex(1)].name}
                     />

@@ -61,28 +61,6 @@ function FAQ() {
     return (
         <div className="faq-container">
 
-
-            <div 
-                className={`mascot-container ${showContact ? "show-contact" : ""}`} 
-                onClick={handleMascotClick} 
-                role="button" 
-                tabIndex={0} 
-            > 
-                <img 
-                src={mascot} 
-                alt="Mori Mung Mascot" 
-                className={`mascot ${isVibrating ? "is-vibrating" : ""}`} 
-                /> 
-
-                {showContact && (
-                    <div className="content-reveal"> 
-                        <h3>Interested?</h3> 
-                        <p>Contact us for quotation or testimony.</p> 
-                        <a href="tel:+60123456789">+60 12-345 6789</a> 
-                    </div>
-                ) }
-            </div>
-
             <div className="feedback-container">
 
                 <h2>Feedbacks</h2>
@@ -105,6 +83,30 @@ function FAQ() {
                 </div>
 
             </div>
+
+
+            <div 
+                className={`mascot-container ${showContact ? "show-contact" : ""}`} 
+                onClick={handleMascotClick} 
+                role="button" 
+                tabIndex={0} 
+            > 
+                <img 
+                src={mascot} 
+                alt="Mori Mung Mascot" 
+                className={`mascot ${isVibrating ? "is-vibrating" : ""}`} 
+                /> 
+
+                {showContact && (
+                    <div className="content-reveal"> 
+                        <h3>Interested?</h3> 
+                        <p>Contact us for quotation or testimony.</p> 
+                        <a href="tel:+60123456789">+60 12-345 6789</a> 
+                    </div>
+                ) }
+            </div>
+
+            
 
         </div>
     );

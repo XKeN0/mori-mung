@@ -1,151 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .benefit-container {
     width: 100%;
     height: auto;
-    padding: 70px 0px;
+
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
-    color: #030303;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+
+    color: #000000;
+}
+
+/* ================================
+   BENEFIT ICONS
+================================ */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    padding: 30px 0;
+
     
 }
 
-/* Container holding the image and the 4 absolute boxes */
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    width: 100px;
+    height: 100px;
+
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 1px solid #000000;
+
+    padding: 20px;
+}
+
+.benefit-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.benefit-item span {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* ================================
+   INFOGRAPHIC
+================================ */
 .infographic-container {
     position: relative;
-    max-width: 1000px;
-    height: 600px; /* Fixed height to give the absolute boxes room */
+
+    width: 80%;
+    max-width: 1200px;
+    height: 600px;
+
     margin: 0 auto;
+    padding: 30px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: #030303;
+
+    box-sizing: border-box;
 }
 
-/* Center Image */
+
+/* ================================
+   CENTER PRODUCT
+================================ */
 .center-product {
     width: 300px;
     height: auto;
+
     z-index: 1;
-    /* Optional: a soft glow behind the food */
-    filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.3)); 
-}
 
-/* Individual Accordion Box */
-.accordion-box {
-    position: absolute;
-    width: 280px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-}
-
-/* Positioning the 4 boxes */
-.top-left { top: 5%; left: 0; }
-.top-right { top: 5%; right: 0; }
-.bottom-left { bottom: 5%; left: 0; }
-.bottom-right { bottom: 5%; right: 0; }
-
-/* The Lines pointing to the image */
-.pointer-line {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 1px;
-    width: 100px;
-    z-index: -1;
-}
-
-/* Angling the lines toward the center */
-.top-left .pointer-line {
-    top: 25px;
-    right: -90px;
-    transform: rotate(20deg);
-}
-.top-right .pointer-line {
-    top: 25px;
-    left: -90px;
-    transform: rotate(-20deg);
-}
-.bottom-left .pointer-line {
-    top: 25px;
-    right: -90px;
-    transform: rotate(-20deg);
-}
-.bottom-right .pointer-line {
-    top: 25px;
-    left: -90px;
-    transform: rotate(20deg);
-}
-
-/* Accordion Button */
-.accordion-btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    text-align: left;
-}
-
-.accordion-title {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.accordion-icon {
-    font-size: 20px;
-    color: #4caf50; 
-}
-
-/* Accordion Dropdown (Hidden by default) */
-.accordion-dropdown {
-    max-height: 0;
-    opacity: 0;
-    padding: 0 20px;
-    overflow: hidden;
-    text-align: left;
-    font-size: 14px;
-    color: #cccccc;
-    transition: all 0.4s ease-in-out;
-}
-
-/* Open State */
-.accordion-box.is-open .accordion-dropdown {
-    max-height: 150px;
-    opacity: 1;
-    padding: 0 20px 20px 20px;
+    filter: drop-shadow(
+        0 0 20px rgba(76, 175, 80, 0.3)
+    );
 }
 
 
-/* =========================================
-   MOBILE RESPONSIVENESS
-========================================= */
+/* ================================
+   TABLET
+================================ */
 @media (max-width: 900px) {
-    /* Stack everything in a column on small screens */
+
+    .icon-container {
+        gap: 50px;
+    }
+
     .infographic-container {
+        width: 90%;
         height: auto;
+        min-height: 500px;
+
         flex-direction: column;
         gap: 20px;
     }
 
-    /* Change boxes back to normal flow (not absolute) */
-    .accordion-box {
-        position: relative;
-        width: 100%;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
+    .center-product {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+@media (max-width: 600px) {
+
+    .icon-container {
+        gap: 20px;
+        flex-wrap: wrap;
     }
 
-    /* Hide the connecting lines on mobile */
-    .pointer-line {
-        display: none;
+    .icon-container img {
+        width: 40px;
+        height: 40px;
     }
-    
+
+    .infographic-container {
+        width: 95%;
+        min-height: 400px;
+        padding: 20px;
+    }
+
     .center-product {
-        margin-bottom: 20px;
+        width: 200px;
     }
 }

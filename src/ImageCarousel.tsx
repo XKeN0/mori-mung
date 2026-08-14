@@ -11,7 +11,6 @@ import HeadingText from "./components/headingText";
 export default function ImageCarousel() {
 
   const images = [
-    
     seveneleven,
     speed,
     jaya,

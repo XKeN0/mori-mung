@@ -20,7 +20,6 @@ createRoot(document.getElementById('root')!).render(
     <Ingredients />
     <Benefit />
     <FAQ />
-    
     <ImageCarousel />
     <Footer />
     

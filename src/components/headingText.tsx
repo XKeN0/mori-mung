@@ -5,6 +5,6 @@ interface HeadingTextProps {
 
 export default function HeadingText({ text }: HeadingTextProps) {
   return (
-    <h1 className="heading">{text}</h1>
+    <h1 className="heading1">{text}</h1>
   );
 }

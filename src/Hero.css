@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
 .dashboard {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,20 +8,16 @@
     width: 100%;
     min-height: 100vh;
 
+    margin-bottom: 15px;
     padding: 50px;
     box-sizing: border-box;
-    
-    overflow: hidden; /* Prevent scrollbar during fall animation */
-}
 
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: -1;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
 .mori-mung-logo {
@@ -37,17 +32,6 @@
     transform-origin: center;
 }
 
-.mori-mung-packaging {
-    width: 200px;
-    height: auto;
-}
-
-.title h1 {
-    font-size: 100px;
-    font-weight: 700;
-    font-family: 'Bebas Neue', sans-serif;
-    color: #333;
-}
 
 /* ========================= */
 /* Falling Animation */
