@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import mascot from "./assets/morimung-mascot.png";
-import packaging from "./assets/mori-packaging.png";
 import "./FAQ.css";
 
 function FAQ() {

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import "./Benefit.css";
 
 // Import your central image here (update the path to match your actual image)
-import productImg from "./assets/morimung-benefits.png";
-import checkeredBg from "./assets/background/checkered.png" 
 import HeadingText from "./components/headingText";
 import protein from "./assets/icons/protein.png"
 import salt from "./assets/icons/salt.png"

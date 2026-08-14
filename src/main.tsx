@@ -9,7 +9,6 @@ import Ingredients from './Ingredients.tsx'
 import About from './About.tsx'
 import FAQ from './FAQ.tsx'
 import Footer from './Footer.tsx'
-import Line from './components/line.tsx'
 import Benefit from './Benefit.tsx'
 
 createRoot(document.getElementById('root')!).render(
