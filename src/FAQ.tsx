@@ -1,114 +1,251 @@
+import { useState } from "react";
 
-import { useEffect, useState } from "react";
-import mascot from "./assets/morimung-mascot.png";
 import "./FAQ.css";
 
+import packaging from "./assets/mori-packaging.png";
+
+
+const faqs = [
+    {
+        question: "What is Mori Mung?",
+        answer:
+            "Mori Mung is a food product made with carefully selected ingredients, created to provide a simple and enjoyable food experience."
+    },
+    {
+        question: "What ingredients are used?",
+        answer:
+            "Mori Mung uses carefully selected ingredients. Explore our Ingredients section to discover more about what goes into our products."
+    },
+    {
+        question: "Is Mori Mung suitable for daily consumption?",
+        answer:
+            "Mori Mung is designed to be an easy addition to your daily routine. Please refer to the product packaging for specific serving and ingredient information."
+    },
+    {
+        question: "How can I request a quotation?",
+        answer:
+            "Click the Mori Mung mascot three times to reveal our contact information and get in touch with us for a quotation."
+    }
+];
+
+
 function FAQ() {
-    
-    const feedbacks = [
-        {
-            name: "Aiman",
-            message: "The taste is really good! I love it."
-        },
-        {
-            name: "Sarah",
-            message: "Mori Mung is now part of my daily routine."
-        },
-        {
-            name: "Daniel",
-            message: "Really interesting product. Would definitely recommend!"
-        },
-        {
-            name: "Nadia",
-            message: "I love how natural and simple the ingredients are."
-        }
-    ];
 
-    const [currentFeedback, setCurrentFeedback] = useState(0);
-    const [clickCount, setClickCount] = useState(0); 
-    const [showContact, setShowContact] = useState(false); 
-    const [isVibrating, setIsVibrating] = useState(false);
-    
-    const handleMascotClick = () => { 
-        const newCount = clickCount + 1; 
-        setClickCount(newCount); 
-        setIsVibrating(true);
+    const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-        setTimeout(() => {
-            setIsVibrating(false);
-        }, 300); 
 
-        if (newCount >= 3) { 
-            setShowContact(true); 
-        } 
+    const handleFAQClick = (index: number) => {
+
+        setOpenFAQ(
+            openFAQ === index
+                ? null
+                : index
+        );
+
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentFeedback((prev) => 
-                (prev + 1) % feedbacks.length
-            );
-        }, 10000); // 10 seconds
-
-        return () => clearInterval(interval);
-    }, [feedbacks.length]);
-
-    
-
-    const feedback = feedbacks[currentFeedback];
 
     return (
-        <div className="faq-container">
 
-            <div className="feedback-container">
+        <section
+            id="faq"
+            className="faq-container"
+        >
 
-                <h2>Feedbacks</h2>
+            <img
+                src={packaging}
+                alt=""
+                className="faq-packaging-overlay"
+            />
 
-                <div className="feedback-wrapper">
 
-                    <div
-                        className="feedback-card feedback-enter"
-                        key={currentFeedback}
-                    >
-                        <div className="feedback-name">
-                            {feedback.name}
-                        </div>
+            {/* ================================================
+                BACKGROUND
+            ================================================= */}
 
-                        <p className="feedback-text">
-                            "{feedback.message}"
-                        </p>
-                    </div>
+            <div className="faq-glow faq-glow-one" />
+
+            <div className="faq-glow faq-glow-two" />
+
+
+            {/* ================================================
+                LEFT SIDE
+            ================================================= */}
+
+            <div className="faq-intro">
+
+                <div className="faq-label">
+
+                    <span className="faq-label-line" />
+
+                    <span>
+                        NEED TO KNOW?
+                    </span>
+
+                </div>
+
+
+                <h1>
+
+                    Questions,
+                    <br />
+
+                    <span>answered.</span>
+
+                </h1>
+
+
+                <p className="faq-description">
+
+                    Everything you need to know
+                    about Mori Mung, from ingredients
+                    to getting in touch with us.
+
+                </p>
+
+
+                {/* ============================================
+                    PRODUCT
+                ============================================= */}
+
+                <div className="faq-product">
+
+                    <div className="product-circle" />
+
+                    <img
+                        src={packaging}
+                        alt="Mori Mung packaging"
+                    />
+
+                </div>
+
+
+                <div className="faq-product-caption">
+
+                    <span>01</span>
+
+                    <p>
+                        MORI MUNG
+                        <br />
+                        NATURALLY BETTER
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <div 
-                className={`mascot-container ${showContact ? "show-contact" : ""}`} 
-                onClick={handleMascotClick} 
-                role="button" 
-                tabIndex={0} 
-            > 
-                <img 
-                src={mascot} 
-                alt="Mori Mung Mascot" 
-                className={`mascot ${isVibrating ? "is-vibrating" : ""}`} 
-                /> 
+            {/* ================================================
+                RIGHT SIDE
+            ================================================= */}
 
-                {showContact && (
-                    <div className="content-reveal"> 
-                        <h3>Interested?</h3> 
-                        <p>Contact us for quotation or testimony.</p> 
-                        <a href="tel:+60123456789">+60 12-345 6789</a> 
-                    </div>
-                ) }
+            <div className="faq-content">
+
+
+                <div className="faq-header">
+
+                    <span>
+                        FAQ
+                    </span>
+
+                    <p>
+                        Find quick answers to
+                        common questions.
+                    </p>
+
+                </div>
+
+
+                <div className="faq-list">
+
+                    {faqs.map((faq, index) => {
+
+                        const isOpen =
+                            openFAQ === index;
+
+
+                        return (
+
+                            <div
+                                key={faq.question}
+                                className={`faq-item ${
+                                    isOpen
+                                        ? "faq-open"
+                                        : ""
+                                }`}
+                            >
+
+
+                                <button
+                                    className="faq-question"
+                                    onClick={() =>
+                                        handleFAQClick(index)
+                                    }
+                                >
+
+                                    <div className="faq-question-left">
+
+                                        <span className="faq-number">
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
+
+                                        <span className="faq-question-text">
+                                            {faq.question}
+                                        </span>
+
+                                    </div>
+
+
+                                    <span className="faq-icon">
+
+                                        <span />
+
+                                        <span />
+
+                                    </span>
+
+                                </button>
+
+
+                                <div className="faq-answer">
+
+                                    <p>
+                                        {faq.answer}
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+                        );
+
+                    })}
+
+                </div>
+
+
+                <div className="faq-footer">
+
+                    <span>
+                        STILL HAVE QUESTIONS?
+                    </span>
+
+                    <span className="faq-footer-line" />
+
+                    <span>
+                        GET IN TOUCH
+                    </span>
+
+                </div>
+
+
             </div>
 
-            
+        </section>
 
-        </div>
     );
 }
+
 
 export default FAQ;

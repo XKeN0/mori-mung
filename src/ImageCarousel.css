@@ -1,46 +1,814 @@
+/* =========================================
+   GOOGLE FONTS
+========================================= */
+
+@import url(
+    "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+);
+
+@import url(
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+);
+
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
 .carousel-container {
+
+    position: relative;
+
     width: 100%;
+    height: 100vh;
+
+    min-height: 700px;
+
+    box-sizing: border-box;
+
     overflow: hidden;
-    margin: 70px 0;
-    background-color: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #081c15;
+
+    color: #ffffff;
+
 }
 
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.carousel-background {
+
+    position: absolute;
+
+    inset: -12%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 28, 21, 0.96),
+            rgba(8, 28, 21, 0.82),
+            rgba(8, 28, 21, 0.96)
+        ),
+        url("./assets/background/lettuce-vegetable-garden.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(120px)
+        scale(1.08);
+
+    transition:
+        opacity 1.8s ease,
+        transform 2.4s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    z-index: 0;
+
+}
+
+
+.carousel-visible
+.carousel-background {
+
+    opacity: 0.18;
+
+    transform:
+        translateY(-20px)
+        scale(1.03);
+
+}
+
+
+/* =========================================
+   GREEN GLOWS
+========================================= */
+
+.carousel-glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.carousel-glow-one {
+
+    width: 400px;
+    height: 400px;
+
+    left: -200px;
+    top: 10%;
+
+    background: #3e8914;
+
+    opacity: 0.12;
+
+}
+
+
+.carousel-glow-two {
+
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    bottom: 0;
+
+    background: #8fcf55;
+
+    opacity: 0.08;
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.carousel-heading {
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 70px;
+
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+}
+
+
+.carousel-visible
+.carousel-heading {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.carousel-label {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+}
+
+
+.carousel-label span {
+
+    width: 35px;
+    height: 1px;
+
+    background: #8fcf55;
+
+}
+
+
+.carousel-heading h2 {
+
+    margin: 0;
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size:
+        clamp(
+            70px,
+            8vw,
+            115px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: 1px;
+
+}
+
+
+.carousel-heading h2 span {
+
+    color: #8fcf55;
+
+}
+
+
+.carousel-heading p {
+
+    margin-top: 20px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+}
+
+
+/* =========================================
+   CAROUSEL WRAPPER
+========================================= */
+
+.carousel-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   IMAGE TRACK
+========================================= */
 
 .image-track {
+
     display: flex;
-    gap: 100px;
+
+    align-items: center;
+
     width: max-content;
 
-    animation: scroll-left 50s linear infinite;
+    gap: 35px;
+
+    animation:
+        scroll-left
+        45s
+        linear
+        infinite;
+
 }
 
 
-.image-track:hover {
-    animation-play-state: paused;
+/* Pause when hovering */
+
+.carousel-wrapper:hover
+.image-track {
+
+    animation-play-state:
+        paused;
+
 }
 
 
-.image-track img {
-    width: 80px;
-    height: 80px;
+/* =========================================
+   LOGO CARD
+========================================= */
 
-    object-fit: contain;
-    border-radius: 20px;
-    
+.logo-card {
+
+    position: relative;
+
+    width: 210px;
+    height: 170px;
 
     flex-shrink: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+
+    transition:
+        transform 0.5s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        border-color 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+
 }
 
 
-/* Move right to left */
+/* =========================================
+   CARD NUMBER
+========================================= */
+
+.logo-number {
+
+    position: absolute;
+
+    top: 13px;
+    left: 16px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(
+            143,
+            207,
+            85,
+            0.65
+        );
+
+}
+
+
+/* =========================================
+   LOGO IMAGE
+========================================= */
+
+.logo-image-wrapper {
+
+    width: 100px;
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+    transition:
+        transform 0.4s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+}
+
+
+.logo-image-wrapper img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+/* =========================================
+   LOGO NAME
+========================================= */
+
+.logo-name {
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+
+}
+
+
+/* =========================================
+   SIDE FADE
+========================================= */
+
+.carousel-fade {
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 18%;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+.carousel-fade-left {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            #081c15,
+            transparent
+        );
+
+}
+
+
+.carousel-fade-right {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            #081c15,
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   MARQUEE ANIMATION
+========================================= */
+
 @keyframes scroll-left {
 
     from {
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
+
     }
 
     to {
-        transform: translateX(-50%);
+
+        transform:
+            translateX(
+                calc(
+                    -50% - 17.5px
+                )
+            );
+
+    }
+
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.carousel-bottom {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 7vw;
+    right: 7vw;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.3
+        );
+
+}
+
+
+.carousel-bottom-line {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .carousel-heading {
+
+        margin-bottom: 55px;
+
+    }
+
+    .logo-card {
+
+        width: 180px;
+        height: 155px;
+
+    }
+
+    .logo-image-wrapper {
+
+        width: 90px;
+        height: 65px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .carousel-container {
+
+        min-height: 650px;
+
+    }
+
+
+    .carousel-heading {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .carousel-heading h2 {
+
+        font-size: 65px;
+
+    }
+
+
+    .carousel-label {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .carousel-label span {
+
+        width: 25px;
+        
+
+    }
+
+
+    .carousel-heading p {
+
+        font-size: 9px;
+
+    }
+
+
+    .image-track {
+
+        gap: 20px;
+
+        animation-duration:
+            35s;
+
+    }
+
+
+    .logo-card {
+
+        width: 160px;
+        height: 140px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .logo-image-wrapper {
+
+        width: 80px;
+        height: 60px;
+
+    }
+
+
+    .carousel-bottom {
+
+        left: 25px;
+        right: 25px;
+
+        bottom: 22px;
+
+    }
+
+
+    .carousel-bottom span {
+
+        font-size: 6px;
+
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .carousel-background,
+    .carousel-heading {
+
+        transition: none;
+
+    }
+
+    .image-track {
+
+        animation: none;
+
+    }
+
+    .logo-card {
+
+        transition: none;
+
     }
 
 }
