@@ -6,7 +6,6 @@ import beans from "./assets/mori-bean.png";
 import bg from "./assets/background/lettuce-vegetable-garden.jpg";
 
 import NormalText from "./components/fonts/normalText";
-import HeadingText from "./components/headingText";
 
 function About() {
     const aboutRef = useRef<HTMLElement>(null);

@@ -12,8 +12,6 @@ import mungBean from "./assets/ingredients/mung-bean.png";
 import uradDhal from "./assets/ingredients/urad-dhal.png";
 import salt from "./assets/ingredients/salt.png";
 
-import bg from "./assets/background/ingredients.jpg";
-
 import "./Ingredients2.css";
 
 type Ingredient = {
