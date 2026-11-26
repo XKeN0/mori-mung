@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import "./FAQ.css";
 
-import packaging from "./assets/mori-packaging.png";
+import packaging from "./assets/new-front.png";
+import packaging_back from "./assets/new-back.png";
 
 
 const faqs = [
@@ -53,7 +54,7 @@ function FAQ() {
         >
 
             <img
-                src={packaging}
+                src={packaging_back}
                 alt=""
                 className="faq-packaging-overlay"
             />
