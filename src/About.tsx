@@ -128,13 +128,7 @@ function About() {
 
                     </div>
 
-                    <div className="product-caption">
-                        <span>01</span>
-
-                        <p>
-                            NATURALLY BETTER
-                        </p>
-                    </div>
+                    
 
                 </div>
 

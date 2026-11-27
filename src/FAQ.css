@@ -330,25 +330,13 @@
 ===================================================== */
 
 .product-circle {
-
     position: absolute;
-
+    opacity: 0.2;
     width: 230px;
     height: 230px;
-
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #3e8914 0%,
-            #24640d 60%,
-            transparent 70%
-        );
-
-    box-shadow:
-        0 0 80px rgba(62, 137, 20, 0.4);
-}
+    box-shadow: 0 0 80px rgba(62, 137, 20, 0.4);
+} 
 
 
 .faq-product img {

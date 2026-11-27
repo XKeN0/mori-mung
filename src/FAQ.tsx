@@ -96,13 +96,7 @@ function FAQ() {
                 </h1>
 
 
-                <p className="faq-description">
-
-                    Everything you need to know
-                    about Mori Mung, from ingredients
-                    to getting in touch with us.
-
-                </p>
+                
 
 
                 {/* ============================================
@@ -121,17 +115,7 @@ function FAQ() {
                 </div>
 
 
-                <div className="faq-product-caption">
-
-                    <span>01</span>
-
-                    <p>
-                        MORI MUNG
-                        <br />
-                        NATURALLY BETTER
-                    </p>
-
-                </div>
+                
 
             </div>
 
